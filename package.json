@@ -1,8 +1,10 @@
 {
-  "name": "vue-cli-app",
-  "version": "0.0.0",
+    "name": "@wei_design/web-vue",
+    "private": false,
+    "version": "1.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
+    "lib:build": "vite build",
     "build": "run-p type-check build-only",
     "preview": "vite preview --port 4173",
     "test:unit": "vitest --environment jsdom",
@@ -12,8 +14,35 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
+
+    "author": "wforguo@qq.com",
+    "description": "Wei Design - A Vue.js 3 UI library, @wei_design/web-vue",
+    "keywords": [
+        "@wei_design/web-vue"
+    ],
+    "homepage": "https://wei-design.github.io/web-vue/",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/wei-design/web-vue.git"
+    },
+    "files": [
+        "lib/*",
+        "packages/*",
+        "Readme.md",
+        "package.json"
+    ],
+    "main": "./lib/web-vue.umd.js",
+    "module": "./lib/web-vue.mjs",
+    "exports": {
+        ".": {
+            "import": "./lib/web-vue.mjs",
+            "require": "./lib/web-vue.umd.js"
+        },
+        "./lib/style.css": "./lib/style.css"
+    },
   "dependencies": {
     "pinia": "^2.0.17",
+    "sass": "^1.54.8",
     "vue": "^3.2.37",
     "vue-router": "^4.1.3"
   },
